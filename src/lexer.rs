@@ -103,7 +103,7 @@ impl Lexer {
     }
 
     /// Returns integer starting at current `self.ch` and ending at first non numeric character, consumes all those characters
-    fn read_int(&mut self) -> i64 {
+    fn read_int(&mut self) -> String {
         let position = self.position;
         while self.ch.is_numeric() {
             self.read_char();
@@ -113,8 +113,6 @@ impl Lexer {
         self.input[position..self.position]
             .iter()
             .collect::<String>()
-            .parse()
-            .unwrap_or(0)
     }
 
     /// Consumes characters until non whitespace character occurs
@@ -183,12 +181,12 @@ fn more_complex() {
         Token::Let,
         Token::Ident("five".into()),
         Token::Assign,
-        Token::Int(5),
+        Token::Int("5".into()),
         Token::Semicolon,
         Token::Let,
         Token::Ident("ten".into()),
         Token::Assign,
-        Token::Int(10),
+        Token::Int("10".into()),
         Token::Semicolon,
         Token::Let,
         Token::Ident("add".into()),
@@ -211,30 +209,30 @@ fn more_complex() {
         Token::Minus,
         Token::Asterisk,
         Token::Slash,
-        Token::Int(5),
+        Token::Int("5".into()),
         Token::Semicolon,
-        Token::Int(5),
+        Token::Int("5".into()),
         Token::LessThan,
-        Token::Int(10),
+        Token::Int("10".into()),
         Token::GreaterThan,
-        Token::Int(5),
+        Token::Int("5".into()),
         Token::Semicolon,
-        Token::Int(4),
+        Token::Int("4".into()),
         Token::Equal,
-        Token::Int(4),
+        Token::Int("4".into()),
         Token::NotEqual,
-        Token::Int(5),
+        Token::Int("5".into()),
         Token::Semicolon,
-        Token::Int(3),
+        Token::Int("3".into()),
         Token::LessOrEqual,
-        Token::Int(4),
+        Token::Int("4".into()),
         Token::GreaterOrEqual,
-        Token::Int(4),
+        Token::Int("4".into()),
         Token::Semicolon,
         Token::If,
-        Token::Int(5),
+        Token::Int("5".into()),
         Token::LessThan,
-        Token::Int(10),
+        Token::Int("10".into()),
         Token::Then,
         Token::Return,
         Token::True,

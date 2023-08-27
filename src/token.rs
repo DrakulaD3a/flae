@@ -3,7 +3,7 @@
 pub enum Token {
     // Identifiers and literals
     Ident(String),
-    Int(i64),
+    Int(String),
 
     // Operators
     Plus,
