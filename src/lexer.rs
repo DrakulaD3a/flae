@@ -70,6 +70,7 @@ impl Lexer {
             }),
             ',' => Some(Token::Comma),
             ';' => Some(Token::Semicolon),
+            '#' => Some(Token::Hash),
             '(' => Some(Token::LParen),
             ')' => Some(Token::RParen),
             '\0' | _ => None,
@@ -160,7 +161,7 @@ fn more_complex() {
     let input = "let five = 5;
     let ten = 10;
     
-    let add a b = a + b;
+    let add a b = a + b;#
 
     let result = add five ten;
 
@@ -197,6 +198,7 @@ fn more_complex() {
         Token::Plus,
         Token::Ident("b".into()),
         Token::Semicolon,
+        Token::Hash,
         Token::Let,
         Token::Ident("result".into()),
         Token::Assign,

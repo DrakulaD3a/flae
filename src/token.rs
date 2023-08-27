@@ -1,5 +1,5 @@
 /// A data type representing the tokens that come out of lexer
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Token {
     // Identifiers and literals
     Ident(String),
@@ -23,6 +23,7 @@ pub enum Token {
     // Delimiters
     Comma,
     Semicolon,
+    Hash,
 
     LParen,
     RParen,
