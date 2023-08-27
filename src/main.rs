@@ -1,6 +1,8 @@
 mod token;
 mod lexer;
 mod repl;
+mod parser;
+mod ast;
 
 fn main() {
     println!("Welcome to the flae programming language!");
